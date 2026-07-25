@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--af-font-ui);
+  background: var(--af-bg-deep);
+  color: var(--af-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+:root,
+[data-theme='dark'] {
+  --af-bg-deep: #1e1e1e;
+  --af-bg-panel: #272822;
+  --af-bg-panel-elevated: #2f3128;
+  --af-bg-editor: #1e1f1c;
+  --af-bg-canvas: #141511;
+  --af-border: #3e3d32;
+  --af-text: #f8f8f2;
+  --af-text-muted: #75715e;
+  --af-accent: #a6e22e;
+  --af-accent-2: #66d9ef;
+  --af-syn-keyword: #f92672;
+  --af-syn-ident: #f8f8f2;
+  --af-syn-number: #ae81ff;
+  --af-syn-operator: #f92672;
+  --af-syn-punct: #75715e;
+  --af-node-program: #fd971f;
+  --af-node-stmt: #a6e22e;
+  --af-node-expr: #66d9ef;
+  --af-node-literal: #ae81ff;
+  --af-selection: #66d9ef;
+  --af-error: #ff5555;
+  --af-error-bg: rgba(255, 85, 85, 0.12);
+  --af-edge: #75715e;
+  --af-gutter: #3e3d32;
+  --af-focus-ring: #a6e22e;
+  --af-font-ui: 'Exo 2', 'Rajdhani', sans-serif;
+  --af-font-code: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+[data-theme='light'] {
+  --af-bg-deep: #f5f5f0;
+  --af-bg-panel: #ffffff;
+  --af-bg-panel-elevated: #f0f0e8;
+  --af-bg-editor: #fafaf5;
+  --af-border: #d0cfc4;
+  --af-text: #272822;
+  --af-text-muted: #756e5c;
+}
+
+button,
+select,
+textarea {
+  font: inherit;
+}
