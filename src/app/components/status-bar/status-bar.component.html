@@ -1,0 +1,12 @@
+<footer class="af-status">
+  <span>{{ tokenCount() }} {{ i18n.t('status.tokens') }}</span>
+  <span>{{ nodeCount() }} {{ i18n.t('status.nodes') }}</span>
+  <span [class.af-status--err]="errorCount() > 0">
+    {{ errorCount() }} {{ i18n.t('status.errors') }}
+  </span>
+  <span>{{ i18n.t('status.zoom') }} {{ zoomPct() }}%</span>
+  <span>{{ duration() }} {{ i18n.t('status.ms') }}</span>
+  <span class="af-status__phase" [class.af-status--err]="errorCount() > 0">
+    {{ phase() }}
+  </span>
+</footer>

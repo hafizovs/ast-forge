@@ -1,0 +1,78 @@
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+}
+
+.af-help {
+  position: absolute;
+  inset: 0;
+}
+
+.af-help__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.af-help__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 100%);
+  background: var(--af-bg-panel);
+  border-left: 1px solid var(--af-border);
+  padding: 1rem 1.25rem;
+  overflow: auto;
+  color: var(--af-text);
+  font-family: var(--af-font-ui);
+}
+
+.af-help__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.af-help__header h2 {
+  margin: 0;
+  color: var(--af-accent);
+  font-size: 1.35rem;
+}
+
+.af-help__close {
+  border: 1px solid var(--af-border);
+  background: var(--af-bg-panel-elevated);
+  color: var(--af-text);
+  border-radius: 6px;
+  padding: 0.3rem 0.65rem;
+  cursor: pointer;
+  font-family: var(--af-font-ui);
+}
+
+.af-help__list {
+  margin: 0 0 1.25rem;
+  padding-left: 1.1rem;
+  color: var(--af-text);
+  line-height: 1.55;
+  font-size: 0.9rem;
+}
+
+.af-help__text {
+  color: var(--af-text-muted);
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--af-accent-2);
+}

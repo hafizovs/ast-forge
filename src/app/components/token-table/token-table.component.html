@@ -1,0 +1,40 @@
+<div class="af-tokens">
+  @if (visibleTokens().length === 0) {
+    <p class="af-tokens__empty">{{ i18n.t('telemetry.noTokens') }}</p>
+  } @else {
+    @if (truncated()) {
+      <p class="af-tokens__notice">
+        {{
+          i18n.t('telemetry.tokensTruncated', {
+            max: maxVisible,
+            total: total(),
+          })
+        }}
+      </p>
+    }
+    <table class="af-tokens__table">
+      <thead>
+        <tr>
+          <th>{{ i18n.t('telemetry.colIndex') }}</th>
+          <th>{{ i18n.t('telemetry.colType') }}</th>
+          <th>{{ i18n.t('telemetry.colValue') }}</th>
+          <th>{{ i18n.t('telemetry.colLine') }}</th>
+          <th>{{ i18n.t('telemetry.colColumn') }}</th>
+          <th>{{ i18n.t('telemetry.colOffset') }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (token of visibleTokens(); track $index; let i = $index) {
+          <tr (click)="onRowClick(i)">
+            <td>{{ i }}</td>
+            <td>{{ token.type }}</td>
+            <td class="af-tokens__value">{{ token.value }}</td>
+            <td>{{ token.loc.start.line }}</td>
+            <td>{{ token.loc.start.column }}</td>
+            <td>{{ token.range.start }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

@@ -1,0 +1,49 @@
+<section class="af-editor" [attr.aria-label]="i18n.t('editor.label')">
+  <div class="af-editor__header">{{ i18n.t('editor.label') }}</div>
+  <div class="af-editor__body">
+    <div
+      #scroll
+      class="af-editor__gutter"
+      [style.width.px]="gutterWidth"
+      aria-hidden="true"
+    >
+      @for (n of lineNumbers(); track n) {
+        <div class="af-editor__line-no">{{ n }}</div>
+      }
+    </div>
+
+    <div class="af-editor__surface">
+      <pre
+        #mirror
+        class="af-editor__mirror"
+        aria-hidden="true"
+        [style.font-family]="fontFamily"
+        [style.font-size.px]="fontSize"
+        [style.line-height]="lineHeight"
+        [style.tab-size]="tabSize"
+      ><span>{{ mirrorParts().before }}</span><mark class="af-editor__mark">{{ mirrorParts().mark }}</mark><span>{{ mirrorParts().after }}</span>
+</pre>
+      <textarea
+        #textarea
+        id="af-code-editor"
+        class="af-editor__textarea"
+        spellcheck="false"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        [attr.aria-label]="i18n.t('editor.label')"
+        [attr.placeholder]="i18n.t('editor.placeholder')"
+        [style.font-family]="fontFamily"
+        [style.font-size.px]="fontSize"
+        [style.line-height]="lineHeight"
+        [style.tab-size]="tabSize"
+        [value]="source()"
+        (input)="onInput($event)"
+        (scroll)="onScroll()"
+        (click)="onCaretChange()"
+        (keyup)="onCaretChange()"
+        (select)="onCaretChange()"
+      ></textarea>
+    </div>
+  </div>
+</section>

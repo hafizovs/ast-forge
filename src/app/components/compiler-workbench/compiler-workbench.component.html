@@ -1,0 +1,120 @@
+<div class="af-workbench">
+  <af-toolbar />
+
+  <div
+    class="af-split"
+    [style.--af-split-left]="splitLeft() + '%'"
+  >
+    <af-code-editor class="af-split__left" />
+    <div
+      class="af-split__handle"
+      role="separator"
+      aria-orientation="vertical"
+      tabindex="0"
+      (pointerdown)="onSplitPointerDown($event)"
+      (pointermove)="onSplitPointerMove($event)"
+      (pointerup)="onSplitPointerUp($event)"
+      (pointercancel)="onSplitPointerUp($event)"
+    ></div>
+    <af-ast-visualizer class="af-split__right" />
+  </div>
+
+  <section
+    class="af-telemetry"
+    [class.af-telemetry--collapsed]="telemetryCollapsed()"
+  >
+    <div class="af-telemetry__tabs">
+      <button
+        type="button"
+        class="af-tab"
+        [class.af-tab--active]="tab() === 'tokens'"
+        (click)="setTab('tokens')"
+      >
+        {{ i18n.t('telemetry.tokens') }}
+      </button>
+      <button
+        type="button"
+        class="af-tab"
+        [class.af-tab--active]="tab() === 'errors'"
+        (click)="setTab('errors')"
+      >
+        {{ i18n.t('telemetry.errors') }}
+        @if (errorCount() > 0) {
+          <span class="af-tab__badge">{{ errorCount() }}</span>
+        }
+      </button>
+      <button
+        type="button"
+        class="af-tab"
+        [class.af-tab--active]="tab() === 'summary'"
+        (click)="setTab('summary')"
+      >
+        {{ i18n.t('telemetry.summary') }}
+      </button>
+      <button
+        type="button"
+        class="af-tab af-tab--collapse"
+        (click)="toggleTelemetry()"
+      >
+        {{ telemetryCollapsed() ? '▾' : '▴' }}
+      </button>
+    </div>
+
+    @if (!telemetryCollapsed()) {
+      <div class="af-telemetry__body">
+        @switch (tab()) {
+          @case ('tokens') {
+            <af-token-table />
+          }
+          @case ('errors') {
+            <af-error-panel />
+          }
+          @case ('summary') {
+            <div class="af-summary">
+              <div class="af-summary__stats">
+                <div>
+                  <span>{{ i18n.t('telemetry.nodeCount') }}</span>
+                  <strong>{{ summary().nodeCount }}</strong>
+                </div>
+                <div>
+                  <span>{{ i18n.t('telemetry.maxDepth') }}</span>
+                  <strong>{{ summary().maxDepth }}</strong>
+                </div>
+                <div>
+                  <span>{{ i18n.t('telemetry.bbox') }}</span>
+                  <strong>{{ summary().bboxW }}×{{ summary().bboxH }}</strong>
+                </div>
+                <div>
+                  <span>{{ i18n.t('telemetry.duration') }}</span>
+                  <strong>{{ summary().duration }} ms</strong>
+                </div>
+              </div>
+              <table class="af-summary__table">
+                <thead>
+                  <tr>
+                    <th>{{ i18n.t('telemetry.kind') }}</th>
+                    <th>{{ i18n.t('telemetry.count') }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (row of summary().kinds; track row[0]) {
+                    <tr>
+                      <td>{{ row[0] }}</td>
+                      <td>{{ row[1] }}</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        }
+      </div>
+    }
+  </section>
+
+  <af-status-bar />
+
+  @if (helpOpen()) {
+    <af-help-drawer />
+  }
+</div>

@@ -1,0 +1,52 @@
+<section class="af-viz" [attr.aria-label]="i18n.t('visualizer.label')">
+  <div class="af-viz__header">{{ i18n.t('visualizer.label') }}</div>
+  <div class="af-viz__canvas">
+    @if (showPlaceholder()) {
+      <div class="af-viz__placeholder">{{ i18n.t('visualizer.noAst') }}</div>
+    }
+    <svg
+      id="af-ast-visualizer"
+      class="af-ast-svg"
+      tabindex="0"
+      role="img"
+      [attr.aria-label]="i18n.t('visualizer.label')"
+      (wheel)="onWheel($event)"
+      (pointerdown)="onPointerDown($event)"
+      (pointermove)="onPointerMove($event)"
+      (pointerup)="onPointerUp($event)"
+      (pointercancel)="onPointerUp($event)"
+      (click)="onBackgroundClick($event)"
+    >
+      <g [attr.transform]="worldTransform()">
+        @for (edge of edges(); track edge.id) {
+          <path class="af-edge" [attr.d]="edge.d" />
+        }
+        @for (node of positionedNodes(); track node.id) {
+          <g
+            class="af-node"
+            [class.af-node--selected]="node.id === selectedId()"
+            [class.af-node--program]="node.family === 'program'"
+            [class.af-node--stmt]="node.family === 'stmt'"
+            [class.af-node--expr]="node.family === 'expr'"
+            [class.af-node--literal]="node.family === 'literal'"
+            [attr.transform]="'translate(' + node.x + ',' + node.y + ')'"
+            role="button"
+            tabindex="0"
+            [attr.aria-label]="node.kind + ' ' + node.detail"
+            (click)="onNodeClick(node.id, $event)"
+            (keydown)="onNodeKeydown(node.id, $event)"
+          >
+            <rect
+              [attr.width]="nodeW"
+              [attr.height]="nodeH"
+              [attr.rx]="corner"
+              [attr.ry]="corner"
+            />
+            <text class="af-node__kind" x="12" y="22">{{ node.kind }}</text>
+            <text class="af-node__detail" x="12" y="42">{{ node.detail }}</text>
+          </g>
+        }
+      </g>
+    </svg>
+  </div>
+</section>

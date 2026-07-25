@@ -1,0 +1,20 @@
+<div class="af-errors" [attr.role]="hasErrors() ? 'alert' : null">
+  @if (!hasErrors()) {
+    <p class="af-errors__ok">{{ i18n.t('telemetry.noErrors') }}</p>
+  } @else {
+    <ul class="af-errors__list">
+      @for (err of errors(); track $index) {
+        <li class="af-errors__item af-errors__item--enter" (click)="onErrorClick(err)">
+          <span class="af-errors__badge">{{ i18n.t('error.prefix') }}</span>
+          <span class="af-errors__phase">{{ phaseLabel(err.phase) }}</span>
+          <span class="af-errors__msg">{{ format(err) }}</span>
+          @if (err.loc) {
+            <span class="af-errors__loc">
+              {{ err.loc.start.line }}:{{ err.loc.start.column }}
+            </span>
+          }
+        </li>
+      }
+    </ul>
+  }
+</div>

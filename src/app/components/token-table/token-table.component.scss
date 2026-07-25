@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  height: 100%;
+  overflow: auto;
+}
+
+.af-tokens {
+  padding: 0.5rem;
+}
+
+.af-tokens__empty,
+.af-tokens__notice {
+  margin: 0.5rem;
+  color: var(--af-text-muted);
+  font-size: 0.85rem;
+}
+
+.af-tokens__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--af-font-code);
+  font-size: 0.8rem;
+}
+
+.af-tokens__table th,
+.af-tokens__table td {
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid var(--af-border);
+  text-align: left;
+}
+
+.af-tokens__table th {
+  position: sticky;
+  top: 0;
+  background: var(--af-bg-panel-elevated);
+  color: var(--af-text-muted);
+  font-family: var(--af-font-ui);
+  font-weight: 600;
+}
+
+.af-tokens__table tbody tr {
+  cursor: pointer;
+}
+
+.af-tokens__table tbody tr:hover {
+  background: rgba(166, 226, 46, 0.08);
+}
+
+.af-tokens__value {
+  color: var(--af-accent-2);
+}

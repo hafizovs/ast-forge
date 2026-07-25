@@ -1,0 +1,66 @@
+<header class="af-toolbar">
+  <div class="af-toolbar__brand">
+    <span class="af-toolbar__title">{{ i18n.t('app.title') }}</span>
+    <span class="af-toolbar__subtitle">{{ subtitle() }}</span>
+  </div>
+
+  <div class="af-toolbar__actions">
+    <label class="af-toolbar__field">
+      <span>{{ i18n.t('toolbar.presets') }}</span>
+      <select
+        class="af-select"
+        [attr.aria-label]="i18n.t('toolbar.presets')"
+        (change)="onPresetChange($event)"
+      >
+        @for (id of presets; track id) {
+          <option [value]="id">{{ presetLabel(id) }}</option>
+        }
+      </select>
+    </label>
+
+    <button
+      type="button"
+      class="af-btn"
+      [attr.aria-label]="i18n.t('toolbar.compile')"
+      (click)="forceCompile()"
+    >
+      {{ i18n.t('toolbar.compile') }}
+    </button>
+
+    <button
+      type="button"
+      class="af-btn"
+      [attr.aria-label]="i18n.t('toolbar.resetView')"
+      (click)="resetView()"
+    >
+      {{ i18n.t('toolbar.resetView') }}
+    </button>
+
+    <button
+      type="button"
+      class="af-btn af-btn--ghost"
+      [attr.aria-label]="i18n.t('toolbar.theme')"
+      (click)="toggleTheme()"
+    >
+      {{ theme() === 'dark' ? i18n.t('theme.dark') : i18n.t('theme.light') }}
+    </button>
+
+    <button
+      type="button"
+      class="af-btn af-btn--ghost"
+      [attr.aria-label]="i18n.t('toolbar.locale')"
+      (click)="toggleLocale()"
+    >
+      {{ locale().toUpperCase() }}
+    </button>
+
+    <button
+      type="button"
+      class="af-btn af-btn--accent"
+      [attr.aria-label]="i18n.t('toolbar.help')"
+      (click)="openHelp()"
+    >
+      ?
+    </button>
+  </div>
+</header>
