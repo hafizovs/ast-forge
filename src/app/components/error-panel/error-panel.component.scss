@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  height: 100%;
+  overflow: auto;
+}
+
+.af-errors {
+  padding: 0.5rem;
+}
+
+.af-errors__ok {
+  margin: 0.5rem;
+  color: var(--af-accent);
+  font-size: 0.9rem;
+}
+
+.af-errors__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.af-errors__item {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.55rem 0.7rem;
+  background: var(--af-error-bg);
+  border: 1px solid var(--af-error);
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--af-text);
+  font-size: 0.85rem;
+}
+
+.af-errors__item--enter {
+  animation: af-error-in 200ms ease-out;
+}
+
+.af-errors__badge {
+  font-weight: 700;
+  color: var(--af-error);
+  font-family: var(--af-font-ui);
+}
+
+.af-errors__phase {
+  font-family: var(--af-font-code);
+  font-size: 0.75rem;
+  color: var(--af-text-muted);
+  text-transform: uppercase;
+}
+
+.af-errors__loc {
+  font-family: var(--af-font-code);
+  color: var(--af-text-muted);
+}
+
+@keyframes af-error-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

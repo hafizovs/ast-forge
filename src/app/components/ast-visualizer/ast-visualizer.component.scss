@@ -1,0 +1,135 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+  background: var(--af-bg-canvas);
+}
+
+.af-viz {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.af-viz__header {
+  flex: 0 0 auto;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--af-font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--af-text-muted);
+  border-bottom: 1px solid var(--af-border);
+  background: #1a1b16;
+}
+
+.af-viz__canvas {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.af-viz__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+  color: var(--af-error);
+  font-family: var(--af-font-ui);
+  pointer-events: none;
+}
+
+.af-ast-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+  background: var(--af-bg-canvas);
+  outline: none;
+}
+
+.af-ast-svg:active {
+  cursor: grabbing;
+}
+
+.af-ast-svg:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--af-focus-ring);
+}
+
+.af-edge {
+  fill: none;
+  stroke: var(--af-edge);
+  stroke-width: 1.5;
+}
+
+.af-node {
+  cursor: pointer;
+  animation: af-node-in 180ms ease-out;
+}
+
+.af-node rect {
+  fill: #22231c;
+  stroke: var(--af-border);
+  stroke-width: 1.5;
+}
+
+.af-node--program rect {
+  stroke: var(--af-node-program);
+}
+
+.af-node--stmt rect {
+  stroke: var(--af-node-stmt);
+}
+
+.af-node--expr rect {
+  stroke: var(--af-node-expr);
+}
+
+.af-node--literal rect {
+  stroke: var(--af-node-literal);
+}
+
+.af-node--selected rect {
+  stroke: var(--af-selection);
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 6px rgba(102, 217, 239, 0.55));
+  animation: af-pulse 1.4s ease-in-out infinite;
+}
+
+.af-node__kind {
+  fill: var(--af-text);
+  font-family: var(--af-font-code);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.af-node__detail {
+  fill: var(--af-text-muted);
+  font-family: var(--af-font-code);
+  font-size: 12px;
+}
+
+@keyframes af-node-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes af-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px rgba(102, 217, 239, 0.35));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(102, 217, 239, 0.75));
+  }
+}

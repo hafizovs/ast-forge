@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.af-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.35rem 0.85rem;
+  background: var(--af-bg-panel);
+  border-top: 1px solid var(--af-border);
+  font-family: var(--af-font-code);
+  font-size: 0.75rem;
+  color: var(--af-text-muted);
+  z-index: 10;
+}
+
+.af-status__phase {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--af-accent);
+}
+
+.af-status--err {
+  color: var(--af-error);
+}

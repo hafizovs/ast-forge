@@ -1,0 +1,21 @@
+<div class="af-help" role="dialog" [attr.aria-label]="i18n.t('help.title')">
+  <button type="button" class="af-help__backdrop" (click)="close()" [attr.aria-label]="i18n.t('help.close')"></button>
+  <aside class="af-help__panel">
+    <header class="af-help__header">
+      <h2>{{ i18n.t('help.title') }}</h2>
+      <button type="button" class="af-help__close" (click)="close()">
+        {{ i18n.t('help.close') }}
+      </button>
+    </header>
+
+    <h3>{{ i18n.t('help.hotkeys') }}</h3>
+    <ul class="af-help__list">
+      @for (key of hotkeys; track key) {
+        <li>{{ i18n.t(key) }}</li>
+      }
+    </ul>
+
+    <h3>{{ i18n.t('help.language') }}</h3>
+    <p class="af-help__text">{{ i18n.t('help.tinyscript') }}</p>
+  </aside>
+</div>
