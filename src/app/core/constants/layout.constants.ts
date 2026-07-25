@@ -1,0 +1,15 @@
+export const LAYOUT_NODE_WIDTH = 168;
+export const LAYOUT_NODE_HEIGHT = 56;
+export const LAYOUT_HORIZONTAL_GAP = 28;
+export const LAYOUT_VERTICAL_GAP = 72;
+export const LAYOUT_ROOT_MARGIN_X = 48;
+export const LAYOUT_ROOT_MARGIN_Y = 40;
+export const ZOOM_MIN = 0.25;
+export const ZOOM_MAX = 3.0;
+export const ZOOM_DEFAULT = 1.0;
+export const ZOOM_WHEEL_FACTOR = 0.0015;
+export const PAN_DEFAULT_X = 0;
+export const PAN_DEFAULT_Y = 0;
+export const EDGE_CURVE_RATIO = 0.45;
+export const NODE_CORNER_RADIUS = 8;
+export const SELECTION_STROKE_WIDTH = 2.5;
