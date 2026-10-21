@@ -8,7 +8,7 @@ import type {
   SourceLocation,
   SourcePosition,
   Token,
-} from '../../models/compiler.types';
+} from '../../features/workbench/compiler.types';
 
 export interface TokenizeResult {
   tokens: Token[];

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { BinaryExpression, ExpressionStatement } from '../../models/compiler.types';
+import type { BinaryExpression, ExpressionStatement } from '../../features/workbench/compiler.types';
 import { tokenize } from './lexer';
 import { parse } from './parser';
 import { findSmallestNode } from './source-map';

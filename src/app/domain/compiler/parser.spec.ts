@@ -5,7 +5,7 @@ import type {
   Expression,
   ExpressionStatement,
   Program,
-} from '../../models/compiler.types';
+} from '../../features/workbench/compiler.types';
 import { tokenize } from './lexer';
 import { parse } from './parser';
 

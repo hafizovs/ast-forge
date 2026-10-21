@@ -13,7 +13,7 @@ import type {
   UnaryExpression,
   VariableDeclaration,
   WhileStatement,
-} from '../../models/compiler.types';
+} from '../../features/workbench/compiler.types';
 
 let nextId = 0;
 

@@ -1,6 +1,6 @@
 import type {
   BinaryOperator,
-} from '../../models/compiler.types';
+} from '../../features/workbench/compiler.types';
 
 const BINARY_PRECEDENCE: Record<BinaryOperator, number> = {
   '*': 30,

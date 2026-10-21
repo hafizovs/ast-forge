@@ -1,3 +1,7 @@
+## Live demo
+
+https://hafizovs.github.io/ast-forge/
+
 # AST-Forge
 
 Визуализатор компилятора и Абстрактного Синтаксического Дерева (Compiler & AST Visualizer) на Angular 22+ (standalone, Signals, zoneless).
@@ -7,15 +11,11 @@
 ```bash
 npm install
 npm start
+npm test
+npm run build
 ```
 
 Откройте `http://localhost:4200/`.
-
-## Тесты
-
-```bash
-npm test
-```
 
 ## TinyScript
 
@@ -40,7 +40,3 @@ Pipeline: **Lexer → Recursive Descent Parser → Tree Layout → SVG**.
 | T | Theme |
 | ? | Help |
 | Escape | Clear selection / close help |
-
-## Документация промпта
-
-Спецификация: [`../docs`](../docs) (INDEX.md → 01…09 + appendices).

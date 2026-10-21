@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CompilerWorkbenchComponent } from './components/compiler-workbench/compiler-workbench.component';
+import { CompilerWorkbenchComponent } from './features/workbench/components/compiler-workbench/compiler-workbench.component';
 
 @Component({
   selector: 'af-root',

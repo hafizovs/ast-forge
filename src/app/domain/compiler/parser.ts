@@ -25,7 +25,7 @@ import type {
   VariableDeclaration,
   VariableKind,
   WhileStatement,
-} from '../../models/compiler.types';
+} from '../../features/workbench/compiler.types';
 
 export interface ParseResult {
   program: Program;

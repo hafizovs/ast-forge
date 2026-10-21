@@ -11,7 +11,7 @@ import type {
   LayoutResult,
   NodeCoordinates,
   Program,
-} from '../../models/compiler.types';
+} from '../../features/workbench/compiler.types';
 import { getChildren } from './source-map';
 
 interface MutablePos {

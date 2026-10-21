@@ -1,4 +1,4 @@
-import type { SamplePresetId } from '../../models/compiler.types';
+import type { SamplePresetId } from '../../features/workbench/compiler.types';
 
 export const DEFAULT_SOURCE = `let x = 10;
 const y = 5;

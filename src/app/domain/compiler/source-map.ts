@@ -3,7 +3,7 @@ import type {
   Expression,
   Program,
   Statement,
-} from '../../models/compiler.types';
+} from '../../features/workbench/compiler.types';
 
 export function getChildren(node: AstNode): AstNode[] {
   switch (node.kind) {
