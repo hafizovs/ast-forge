@@ -11,4 +11,4 @@ export const SPLIT_MIN_LEFT_PERCENT = 28;
 export const SPLIT_MAX_LEFT_PERCENT = 62;
 export const TELEMETRY_MAX_VISIBLE_TOKENS = 500;
 export const DEFAULT_THEME = 'dark' as const;
-export const DEFAULT_LOCALE = 'ru' as const;
+export const DEFAULT_LOCALE = 'en' as const;
